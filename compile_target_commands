@@ -1,0 +1,8 @@
+# Bare Metal target such as thumbv7em-none-eabihf
+cargo build --target thumbv7em-none-eabihf
+# Linux
+cargo rustc -- -C link-arg=-nostartfiles
+# Windows
+cargo rustc -- -C link-arg="/ENTRY:_start /SUBSYSTEM:console"
+# macOS
+cargo rustc -- -C link-arg="-e __start -static -nostartfiles"
