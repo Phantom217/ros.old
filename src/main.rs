@@ -3,6 +3,8 @@
 
 use core::panic::PanicInfo;
 
+mod vga_buffer;
+
 static HELLO: &[u8] = b"Hello World!";
 
 #[no_mangle] // don't mangle the name of this function
