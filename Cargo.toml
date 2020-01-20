@@ -4,6 +4,9 @@ version = "0.1.0"
 authors = ["Tyler Oalman <tyleroalman@gmail.com>"]
 edition = "2018"
 
+[dependencies]
+bootloader = "0.8.5"
+
 # profile used for `cargo build`
 [profile.dev]
 panic = "abort" # disable stack unwinding on panic
