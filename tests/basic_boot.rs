@@ -6,6 +6,8 @@
 
 use core::panic::PanicInfo;
 
+use ros::{println, serial_print, serial_println};
+
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
     test_main();
@@ -16,4 +18,11 @@ pub extern "C" fn _start() -> ! {
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     ros::test_panic_handler(info)
+}
+
+#[test_case]
+fn test_println() {
+    serial_print!("test_println... ");
+    println!("test_println output");
+    serial_println!("[ok]");
 }
