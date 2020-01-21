@@ -4,6 +4,10 @@ version = "0.1.0"
 authors = ["Tyler Oalman <tyleroalman@gmail.com>"]
 edition = "2018"
 
+[[test]]
+name = "should_panic"
+harness = false
+
 [dependencies]
 bootloader = "0.8.5"
 volatile = "0.2.6"
