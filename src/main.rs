@@ -14,6 +14,11 @@ pub extern "C" fn _start() -> ! {
 
     ros::init();
 
+    // attempt to access memory outside of kernel
+    // provoke a page fault instead of a double fault
+    let ptr = 0xdeadbeaf as *mut u32;
+    unsafe { *ptr = 42; }
+
     #[cfg(test)]
     test_main();
 
