@@ -6,10 +6,13 @@
 
 use core::panic::PanicInfo;
 
+use bootloader::{BootInfo, entry_point};
+
 use ros::println;
 
-#[no_mangle] // don't mangle the name of this function
-pub extern "C" fn _start() -> ! {
+entry_point!(kernel_main);
+
+fn kernel_main(boot_info: &'static BootInfo) -> ! {
     use x86_64::registers::control::Cr3;
 
     println!("Hello World{}", "!");
